@@ -17,7 +17,7 @@ run: perfdash
 		--address=0.0.0.0:8080 \
 		--builds=20 \
 		--force-builds \
-		--githubConfigDir=https://api.github.com/repos/kubernetes/perf-tests/contents/perfdash/test
+		--githubConfigDir=https://api.github.com/repos/marseel/perf-tests/contents/perfdash/test
 
 # Use buildkit to have "COPY --chmod=" support (availability of it in "regular" docker build depends on docker version).
 container:

@@ -681,7 +681,7 @@ func getProwConfig(configPaths []string) (Jobs, error) {
 		}
 		conf := &config{}
 		if err := yaml.Unmarshal(content, conf); err != nil {
-			return nil, fmt.Errorf("error unmarshaling prow config from %s: %v", configPath, err)
+			return nil, fmt.Errorf("error unmarshaling prow config from %s: %v, %s", configPath, err, string(content))
 		}
 		for _, periodic := range conf.Periodics {
 			config, err := parsePeriodicConfig(periodic)
