@@ -2,8 +2,8 @@ apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
   labels:
-    k8s-app: cilium-operator-pods
-  name: cilium-operator-pods
+    k8s-app: cilium-agent-pods
+  name: cilium-agent-pods
   namespace: monitoring
 spec:
   podMetricsEndpoints:
@@ -12,7 +12,7 @@ spec:
   jobLabel: k8s-app
   selector:
     matchLabels:
-      io.cilium/app: operator
+      k8s-app: cilium
   namespaceSelector:
     matchNames:
       - kube-system
