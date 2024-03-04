@@ -98,17 +98,17 @@ func newPodPeriodCommandMeasurementParams(
 		return
 	}
 
-	p.FailOnCommandError, err = util.GetBool(params, "failOnCommandError")
+	p.FailOnCommandError, err = util.GetBoolOrDefault(params, "failOnCommandError", true)
 	if err != nil {
 		return
 	}
 
-	p.FailOnExecError, err = util.GetBool(params, "failOnExecError")
+	p.FailOnExecError, err = util.GetBoolOrDefault(params, "failOnExecError", true)
 	if err != nil {
 		return
 	}
 
-	p.FailOnTimeout, err = util.GetBool(params, "failOnTimeout")
+	p.FailOnTimeout, err = util.GetBoolOrDefault(params, "failOnTimeout", true)
 	if err != nil {
 		return
 	}

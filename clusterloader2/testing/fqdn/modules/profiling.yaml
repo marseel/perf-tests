@@ -1,0 +1,31 @@
+{{$action := .action}}
+
+steps:
+- name: {{$action}} PodPeriodicCommand
+  measurements:
+  - identifier: PodPeriodicCommand
+    method: PodPeriodicCommand
+    params:
+      action: {{$action}}
+      labelSelector: k8s-app=cilium
+      interval: 30s
+      container: cilium-agent
+      limit: 1
+      failOnCommandError: true
+      failOnExecError: true
+      failOnTimeout: true
+      commands:
+      - name: AllocsProfile
+        command:
+        - curl
+        - -s
+        - -k
+        - http://localhost:6060/debug/pprof/allocs?seconds=10
+        timeout: 15s
+      - name: CPUProfile
+        command:
+        - curl
+        - -s
+        - -k
+        - http://localhost:6060/debug/pprof/profile?seconds=10
+        timeout: 15s

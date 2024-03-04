@@ -34,6 +34,7 @@ func NewKindProvider(_ map[string]string) Provider {
 			SupportSSHToMaster:                  false,
 			SupportImagePreload:                 true,
 			SupportEnablePrometheusServer:       true,
+			ShouldPrometheusScrapeApiserverOnly: true,
 			SupportGrabMetricsFromKubelets:      true,
 			SupportAccessAPIServerPprofEndpoint: true,
 			SupportMetricsServerMetrics:         true,
