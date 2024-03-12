@@ -4,9 +4,13 @@ metadata:
   name: {{.Name}}
 data:
   all-queries: |
-      my-bucket.s3.us-west-2.amazonaws.com
-      other-bucket.s3.us-west-2.amazonaws.com
-      xxx.s3.us-west-2.amazonaws.com
-      yyy.s3.us-west-2.amazonaws.com
-      www.s3.us-west-2.amazonaws.com
-      zzz.s3.us-west-2.amazonaws.com
+      my-bucket1.s3.us-west-2.amazonaws.com
+      my-bucket2.s3.us-west-2.amazonaws.com
+      my-bucket3.s3.us-west-2.amazonaws.com
+      my-bucket4.s3.us-west-2.amazonaws.com
+      my-bucket5.s3.us-west-2.amazonaws.com
+      my-bucket6.s3.us-west-2.amazonaws.com
+      my-bucket7.s3.us-west-2.amazonaws.com
+      my-bucket8.s3.us-west-2.amazonaws.com
+      my-bucket9.s3.us-west-2.amazonaws.com
+      my-bucket10.s3.us-west-2.amazonaws.com

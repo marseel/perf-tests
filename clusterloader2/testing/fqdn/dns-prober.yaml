@@ -32,7 +32,7 @@ spec:
           protocol: TCP
         resources:
           requests:
-            cpu: 5m
+            cpu: 1000m
             memory: "20M"
         volumeMounts:
           - name: configmap

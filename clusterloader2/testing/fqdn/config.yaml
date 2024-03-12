@@ -1,5 +1,5 @@
-{{$namespaces := 10}}
-{{$qps := 10}}
+{{$namespaces := 3}}
+{{$qps := 20}}
 
 name: load
 namespace:

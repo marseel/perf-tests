@@ -24,3 +24,24 @@ steps:
         query: histogram_quantile(0.5, sum(rate(dns_lookup_latency_bucket[%v])) by (le))
       - name: DNS Lookup Latency - Perc99
         query: histogram_quantile(0.99, sum(rate(dns_lookup_latency_bucket[%v])) by (le))
+
+  - Identifier: CiliumDNSPerformanceMetrics
+    Method: GenericPrometheusQuery
+    Params:
+      action: {{$action}}
+      metricName: Cilium DNS Performance
+      metricVersion: v1
+      unit: s
+      queries:
+      - name: DNS Proxy total time - Perc50
+        query: histogram_quantile(0.5, sum(rate(cilium_proxy_upstream_reply_seconds_bucket{scope="processingTime"}[%v])) by (le))
+      - name: DNS Proxy total time - Perc99
+        query: histogram_quantile(0.99, sum(rate(cilium_proxy_upstream_reply_seconds_bucket{scope="processingTime"}[%v])) by (le))
+      - name: DNS Proxy processing time - Perc50
+        query: histogram_quantile(0.5, sum(rate(cilium_proxy_upstream_reply_seconds_bucket{scope="processingTime"}[%v])) by (le))
+      - name: DNS Proxy processing time - Perc99
+        query: histogram_quantile(0.99, sum(rate(cilium_proxy_upstream_reply_seconds_bucket{scope="processingTime"}[%v])) by (le))
+      - name: DNS Proxy upstream time - Perc50
+        query: histogram_quantile(0.5, sum(rate(cilium_proxy_upstream_reply_seconds_bucket{scope="upstreamTime"}[%v])) by (le))
+      - name: DNS Proxy upstream time - Perc99
+        query: histogram_quantile(0.99, sum(rate(cilium_proxy_upstream_reply_seconds_bucket{scope="upstreamTime"}[%v])) by (le))
