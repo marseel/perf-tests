@@ -3,23 +3,22 @@
 {{$PROMETHEUS_SCRAPE_CILIUM_AGENT_INTERVAL := DefaultParam .CL2_PROMETHEUS_SCRAPE_CILIUM_AGENT_INTERVAL "30s"}}
 
 {{if $PROMETHEUS_SCRAPE_CILIUM_AGENT }}
-
 apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
+kind: ServiceMonitor
 metadata:
   labels:
-    k8s-app: cilium-agent-pods
-  name: cilium-agent-pods
+    k8s-app: cilium-service
+  name: cilium-service
   namespace: monitoring
 spec:
-  podMetricsEndpoints:
+  endpoints:
     - interval: {{ $PROMETHEUS_SCRAPE_CILIUM_AGENT_INTERVAL }}
-      port: {{ $PROMETHEUS_SCRAPE_CILIUM_AGENT_PORT }}
+      port: http-metrics
   jobLabel: k8s-app
-  selector:
-    matchLabels:
-      k8s-app: cilium
   namespaceSelector:
     matchNames:
       - kube-system
+  selector:
+    matchLabels:
+      k8s-app: cilium-service
 {{end}}

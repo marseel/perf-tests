@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: kube-system
+  name: cilium-service
+  labels:
+    k8s-app: cilium-service
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+    - name: http-metrics
+      port: 80
+      targetPort: prometheus
+  selector:
+    k8s-app: cilium
